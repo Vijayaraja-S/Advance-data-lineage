@@ -6,4 +6,5 @@ import lombok.Data;
 public class ColumInfos {
     private String columId;
     private String columName;
+    private String column;
 }
