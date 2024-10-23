@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ApplicationInfos {
-    private String id;
-    private UUID referenceId;
-    private String applicationName;
+  private String id;
+  private UUID referenceId;
+  private String applicationName;
 }

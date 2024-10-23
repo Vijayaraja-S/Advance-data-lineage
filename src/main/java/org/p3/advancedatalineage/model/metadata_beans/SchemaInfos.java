@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SchemaInfos {
-    private String id;
-    private UUID referenceId;
-    private String schemaName;
+  private String id;
+  private UUID referenceId;
+  private String schemaName;
 }

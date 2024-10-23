@@ -1,29 +1,34 @@
 package org.p3.advancedatalineage.service.nodes.individual_nodes;
 
 import io.trino.sql.tree.*;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
 import java.util.Optional;
+import org.jgrapht.graph.DefaultDirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
 import org.p3.advancedatalineage.model.metadata_beans.ColumnInfos;
 import org.p3.advancedatalineage.service.MetaDataCollector;
-import org.p3.advancedatalineage.service.nodes.interfaces.CommonNode;
-import org.p3.advancedatalineage.service.nodes.interfaces.CommonNodeVisitor;
+import org.p3.advancedatalineage.service.nodes.CommonNode;
+import org.p3.advancedatalineage.service.nodes.CommonNodeFactory;
 
 public class SelectHandler implements CommonNode {
   private final Select select;
+  private final MetaDataCollector metaDataCollector;
+  private final DefaultDirectedGraph<Object, DefaultEdge> graph;
+  private final CommonNodeFactory commonNodeFactory;
 
-  private Map<String, LinkedList<ColumnInfos>> columInfos = new LinkedHashMap<>();
-  
-
-  public SelectHandler(Select select, MetaDataCollector metaDataCollector) {
+  public SelectHandler(
+      Select select,
+      MetaDataCollector metaDataCollector,
+      DefaultDirectedGraph<Object, DefaultEdge> graph,
+      CommonNodeFactory commonNodeFactory) {
     this.select = select;
+    this.metaDataCollector = metaDataCollector;
+    this.graph = graph;
+    this.commonNodeFactory = commonNodeFactory;
   }
 
   @Override
-  public void accept(CommonNodeVisitor visitor) {
+  public void accept() {
     processSelectNode(select);
-    visitor.visit(this);
   }
 
   private void processSelectNode(Select selectNode) {
@@ -45,8 +50,10 @@ public class SelectHandler implements CommonNode {
     final Optional<Identifier> alias = singleColumn.getAlias();
     ColumnInfos column = ColumnInfos.builder().build();
     column.setColumnAliasName(alias.isPresent() ? String.valueOf(alias.get()) : "");
-    Expression expression = singleColumn.getExpression();
+    if (singleColumn.getExpression() instanceof DereferenceExpression dereferenceExpression) {
+//      saveColumDetails(dereferenceExpression, column);
+    } else {
+//      checkNode(singleColumn.getExpression());
+    }
   }
-
-
 }

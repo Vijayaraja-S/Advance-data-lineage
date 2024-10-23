@@ -1,8 +1,9 @@
-package org.p3.advancedatalineage.service.nodes.individual_nodes;
+package org.p3.advancedatalineage;
 
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
-import org.p3.advancedatalineage.model.metadata_beans.ColumnInfos;
+
+import java.util.Set;
 
 public class GraphExample {
   public static void main(String[] args) {
@@ -25,7 +26,10 @@ public class GraphExample {
     graph.addEdge("B", "C");
     graph.addEdge("C", "A");
 
-    // Print the graph
-    System.out.println(graph);
+    // Extract only the nodes (vertices)
+    Set<Object> nodes = graph.vertexSet();
+
+    // Print the nodes
+    System.out.println("Nodes in the graph: " + nodes);
   }
 }

@@ -5,9 +5,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class TableInfos {
+public class TableDetails {
     private String id;
     private String name;
     private String type;
-    private List<ColumInfos> columnInfos;
+    private List<ColumnDetails> columnInfos;
 }

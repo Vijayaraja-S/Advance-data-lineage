@@ -7,7 +7,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class TargetInfo {
+public class TargetDetails {
     private String id;
     private String column;
     private String parentId;

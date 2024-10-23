@@ -10,9 +10,9 @@ import lombok.*;
 @Getter
 @Setter
 public class ColumnInfos {
-    @Builder.Default private String id ="";
-    private UUID referenceId;
-    @Builder.Default private String columnName="";
-    @Builder.Default private String columnAliasName="";
-    @Builder.Default private String columnSource = "DEFAULT_TABLE";
+  @Builder.Default private String id = "";
+  private UUID referenceId;
+  @Builder.Default private String columnName = "";
+  @Builder.Default private String columnAliasName = "";
+  @Builder.Default private String columnSource = "DEFAULT_TABLE";
 }

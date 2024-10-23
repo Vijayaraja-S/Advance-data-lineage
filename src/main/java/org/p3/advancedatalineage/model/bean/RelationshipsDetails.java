@@ -9,10 +9,10 @@ import java.util.List;
 @Data
 @Getter
 @Setter
-public class Relationships {
+public class RelationshipsDetails {
     private String id;
     private String type;
     private String effectType;
-    private TargetInfo targetInfo;
-    private List<SourceInfo> sourceInfo;
+    private TargetDetails targetInfo;
+    private List<SourceDetails> sourceInfo;
 }

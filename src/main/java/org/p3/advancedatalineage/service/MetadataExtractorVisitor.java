@@ -1,6 +1,5 @@
 package org.p3.advancedatalineage.service;
 
-import lombok.Setter;
 import org.p3.advancedatalineage.service.nodes.individual_nodes.ExpressionHandler;
 import org.p3.advancedatalineage.service.nodes.individual_nodes.GroupByHandler;
 import org.p3.advancedatalineage.service.nodes.individual_nodes.RelationHandler;
