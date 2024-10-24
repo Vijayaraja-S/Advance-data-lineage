@@ -27,7 +27,8 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'com.sqlparser:gudusoft.gsqlparser:2.8.5.8'
+    implementation files('libs/gudusoft.gsqlparser-2.8.5.8.jar')
+    implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
